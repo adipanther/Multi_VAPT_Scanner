@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Multi VAPT Scanner</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container py-4">
+    <h1 class="text-center mb-4">🛡️ Multi VAPT Security Toolkit</h1>
+    <p class="text-center text-muted">Select a service and scan your target website</p>
+
+    <div class="row g-4">
+      <!-- URL Analysis -->
+      <div class="col-md-3">
+        <div class="service-card">
+          <img src="{{ url_for('static', filename='images/url.png') }}" class="service-icon" alt="URL Analysis">
+          <h5>URL Security Analysis</h5>
+          <button class="btn btn-primary w-100" onclick="startScan('url')">Run</button>
+        </div>
+      </div>
+
+      <!-- Headers -->
+      <div class="col-md-3">
+        <div class="service-card">
+          <img src="{{ url_for('static', filename='images/headers.png') }}" class="service-icon" alt="Headers">
+          <h5>Security Header Validation</h5>
+          <button class="btn btn-primary w-100" onclick="startScan('headers')">Run</button>
+        </div>
+      </div>
+
+      <!-- Subdomain -->
+      <div class="col-md-3">
+        <div class="service-card">
+          <img src="{{ url_for('static', filename='images/subdomain.png') }}" class="service-icon" alt="Subdomain">
+          <h5>Subdomain Enumeration</h5>
+          <button class="btn btn-primary w-100" onclick="startScan('subdomain')">Run</button>
+        </div>
+      </div>
+
+      <!-- SQLi -->
+      <div class="col-md-3">
+        <div class="service-card">
+          <img src="{{ url_for('static', filename='images/sqli.png') }}" class="service-icon" alt="SQLi">
+          <h5>SQL Injection</h5>
+          <button class="btn btn-primary w-100" onclick="startScan('sql')">Run</button>
+        </div>
+      </div>
+
+      <!-- XSS -->
+      <div class="col-md-3">
+        <div class="service-card">
+          <img src="{{ url_for('static', filename='images/xss.png') }}" class="service-icon" alt="XSS">
+          <h5>XSS Exploit Scanner</h5>
+          <button class="btn btn-primary w-100" onclick="startScan('xss')">Run</button>
+        </div>
+      </div>
+
+      <!-- Redirect -->
+      <div class="col-md-3">
+        <div class="service-card">
+          <img src="{{ url_for('static', filename='images/redirect.png') }}" class="service-icon" alt="Redirect">
+          <h5>Open Redirect Checker</h5>
+          <button class="btn btn-primary w-100" onclick="startScan('redirect')">Run</button>
+        </div>
+      </div>
+
+      <!-- Restricted Access -->
+      <div class="col-md-3">
+        <div class="service-card">
+          <img src="{{ url_for('static', filename='images/lock.png') }}" class="service-icon" alt="Restricted">
+          <h5>Restricted Access Validator</h5>
+          <button class="btn btn-primary w-100" onclick="startScan('restricted')">Run</button>
+        </div>
+      </div>
+
+      <!-- Credential Tester -->
+      <div class="col-md-3">
+        <div class="service-card">
+          <img src="{{ url_for('static', filename='images/credentials.png') }}" class="service-icon" alt="Credentials">
+          <h5>Credential Security Tester</h5>
+          <button class="btn btn-primary w-100" onclick="startScan('credentials')">Run</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="mt-5">
+      <h3>📊 Scan Results</h3>
+      <div id="results" class="result-box">No scan yet.</div>
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
